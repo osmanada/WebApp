@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  flask-blog:
+    container_name: flask-blog-container
+    build: ./flask-blog
+    restart: always
+    ports: 
+      - "8080:8080"
+

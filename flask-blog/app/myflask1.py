@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 app = Flask(__name__)
+import os
 
 #dummy data
 blogposts = [
@@ -19,6 +20,9 @@ blogposts = [
 	},
 
 ]
+
+color = os.environ.get("APP_Color") #uses the env variable to set the background color
+
 @app.route('/')
 def hello_world():
     return render_template("home.html", blogposts=blogposts)
@@ -29,4 +33,4 @@ def about():
 
 
 if __name__ == "__main__":
-	app.run(debug=True)  #run flask in debug mode
+	app.run(debug=True, host="0.0.0.0", port="8080")  #run flask in debug mode
